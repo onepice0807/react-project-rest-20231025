@@ -6,7 +6,7 @@ import ErrorAlert from '../components/ErrorAlert';
 import axios from 'axios';
 import { useEffect } from 'react';
 import DetailInfoModal from '../components/Modal';
-import SuccessAlert from '../components/SuccesAlert';
+import SuccessAlert from '../components/SuccessAlert';
 
 const columns = [
   { field: 'no', headerName: '글번호', width: 90 },
