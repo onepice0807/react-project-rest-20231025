@@ -11,8 +11,11 @@ const DetailPage = () => {
   }, []);
 
   const fetchBoard = async () => {
+    const productId = 'S000210730354';
     try {
-      const response = await axios.get('http://localhost:8081/review/all/');
+      const response = await axios.get(
+        `http://localhost:8081/detail/${productId}`,
+      );
       console.log(response);
     } catch (error) {
       setError(true);

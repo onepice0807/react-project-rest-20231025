@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useNavigate } from 'react-router-dom';
 
-const pages = ['DataGrid(Select)', 'Pricing', 'Blog'];
+const pages = ['DataGrid(Select)', '페이징연습', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const Navbar = () => {
@@ -35,6 +35,10 @@ const Navbar = () => {
     switch (index) {
       case 0:
         navigate('/selectgrid');
+        break;
+
+      case 1:
+        navigate('/paging');
         break;
 
       default:
