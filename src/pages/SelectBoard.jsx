@@ -7,6 +7,8 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import DetailInfoModal from '../components/Modal';
 import SuccessAlert from '../components/SuccessAlert';
+import { IoKeySharp } from 'react-icons/io5';
+import SaveModal from '../components/SaveModal';
 
 const columns = [
   { field: 'no', headerName: '글번호', width: 90 },
@@ -43,11 +45,12 @@ const SelectBoard = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [clickedNo, setClickedNo] = useState(-1);
   const [successAlertVisible, setSuccessAlertVisible] = useState(true);
+  const [modalShow, setModalShow] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setSuccessAlertVisible(false);
-    }, 3000); // 3초간 표시
+    }, 1500); // 1.5초간 표시 그후 숨김
 
     return () => {
       clearTimeout(timer); // Clear the timer when the component unmounts
@@ -71,6 +74,10 @@ const SelectBoard = () => {
   const handelRowClick = (params) => {
     setClickedNo(Number(params.row.no));
     setModalOpen(true);
+  };
+
+  const handelSaveClick = () => {
+    setModalShow(true);
   };
 
   if (error) {
@@ -106,6 +113,11 @@ const SelectBoard = () => {
             />
           ) : null}
         </Box>
+        <div style={{ position: 'fixed', bottom: 20, right: 20 }}>
+          <IoKeySharp size={40} onClick={handelSaveClick} />
+        </div>
+
+        {modalShow ? <SaveModal setModalShow={setModalShow} /> : null}
       </>
     );
   }
