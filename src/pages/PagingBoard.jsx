@@ -18,6 +18,7 @@ const PagingBoard = () => {
     const { results, total_pages } = response.data;
     setBoards(results);
     setTotal_pages(total_pages);
+    console.log(response.data);
   };
 
   const handlePageChange = (newPageNo) => {
@@ -44,6 +45,7 @@ const PagingBoard = () => {
             <div className='board'>
               <div>{board.title}</div>
               <div>{board.writer}</div>
+              <div>{board.overview}</div>
             </div>
             <div>{new Date(board.postDate).toLocaleString()}</div>
           </div>

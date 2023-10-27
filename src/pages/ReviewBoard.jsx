@@ -11,7 +11,7 @@ const ReviewBoard = () => {
   }, []);
 
   const fetchBoard = async () => {
-    const subcategory = 'S000208698551';
+    const subcategory = 'S000210730354';
     try {
       const response = await axios.get(
         `http://localhost:8081/review/all/${subcategory}`,
